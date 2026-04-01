@@ -2,24 +2,24 @@
 resource "aws_vpc" "vpc1" {
   cidr_block           = var.vpc_cidrs["vpc1"]
   enable_dns_hostnames = true
-  tags = { 
-    Name = "test-vpc-1" 
+  tags = {
+    Name = "test-vpc-1"
   }
 }
 
 resource "aws_vpc" "vpc2" {
   cidr_block           = var.vpc_cidrs["vpc2"]
   enable_dns_hostnames = true
-  tags = { 
-    Name = "test-vpc-2" 
+  tags = {
+    Name = "test-vpc-2"
   }
 }
 
 resource "aws_vpc" "vpc3" {
   cidr_block           = var.vpc_cidrs["vpc3"]
   enable_dns_hostnames = true
-  tags = { 
-    Name = "test-vpc-3" 
+  tags = {
+    Name = "test-vpc-3"
   }
 }
 
@@ -29,8 +29,8 @@ resource "aws_subnet" "sub1" {
   cidr_block              = var.subnet_cidrs["subnet1"]
   map_public_ip_on_launch = true
   availability_zone       = "us-east-1a"
-  tags = { 
-    Name = "test-subnet-vpc-1-1a" 
+  tags = {
+    Name = "test-subnet-vpc-1-1a"
   }
 }
 
@@ -39,8 +39,8 @@ resource "aws_subnet" "sub2" {
   cidr_block              = var.subnet_cidrs["subnet2"]
   map_public_ip_on_launch = true
   availability_zone       = "us-east-1a"
-  tags = { 
-    Name = "test-subnet-vpc-2-1a" 
+  tags = {
+    Name = "test-subnet-vpc-2-1a"
   }
 }
 
@@ -49,8 +49,8 @@ resource "aws_subnet" "sub3" {
   cidr_block              = var.subnet_cidrs["subnet3"]
   map_public_ip_on_launch = true
   availability_zone       = "us-east-1a"
-  tags = { 
-    Name = "test-subnet-vpc-3-1a" 
+  tags = {
+    Name = "test-subnet-vpc-3-1a"
   }
 }
 
@@ -72,8 +72,8 @@ resource "aws_internet_gateway" "igw3" {
 
 # --- Transit Gateway & Attachments ---
 resource "aws_ec2_transit_gateway" "tgw" {
-  tags = { 
-    Name = "Tg-vpc-1-vpc-2-vpc-3" 
+  tags = {
+    Name = "Tg-vpc-1-vpc-2-vpc-3"
   }
 }
 

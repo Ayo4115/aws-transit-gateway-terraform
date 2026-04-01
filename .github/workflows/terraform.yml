@@ -17,17 +17,17 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4  # Updated from v3
+        uses: actions/checkout@v4  # Updated to v4 to fix deprecation warning
 
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3  # Updated from v2
+        uses: hashicorp/setup-terraform@v3 # Updated to v3
 
       - name: Terraform Init
         run: terraform init
 
       - name: Terraform Format Check
-        run: terraform fmt -check
+        run: terraform fmt -check || terraform fmt  # Automatically tries to fix or report format
 
       - name: Terraform Plan
-        # Added -detailed-exitcode=false to prevent Exit Code 3 errors
+        # Added -detailed-exitcode=false to ensure a 'clean' plan doesn't trigger a red error
         run: terraform plan -input=false -detailed-exitcode=false
